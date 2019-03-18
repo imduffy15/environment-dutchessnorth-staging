@@ -13,7 +13,7 @@ pipeline {
       steps {
         container('maven') {
           dir('env') {
-            sh 'jx step helm build'
+            sh 'jx --log-level='debug' --verbose=true step helm build'
           }
         }
       }
@@ -25,7 +25,7 @@ pipeline {
       steps {
         container('maven') {
           dir('env') {
-            sh 'jx step helm apply'
+            sh 'jx --log-level='debug' --verbose=true step helm apply'
           }
         }
       }
